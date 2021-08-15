@@ -34,13 +34,28 @@ app.get("/login", function (req, res) {
   res.render("login");
 });
 
+app.post("/login", function (req, res) {
+  const userEmail = req.body.username;
+  const userPassword = req.body.password;
+
+  User.findOne({ email: userEmail }, function (err, user) {
+    if (!err) {
+      if (!user) console.log("Please register first.");
+      else {
+        if (user.password === userPassword) res.render("secrets");
+        else console.log("Wrong password");
+      }
+    } else console.log(err);
+  });
+});
+
 app.get("/register", function (req, res) {
   res.render("register");
 });
 
 app.post("/register", function (req, res) {
   const newUser = new User({
-    email: req.body.userName,
+    email: req.body.username,
     password: req.body.password,
   });
 
