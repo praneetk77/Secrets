@@ -9,3 +9,4 @@ This is a practice project done to learn different levels of authentication in N
 - Level 3 : Hashing with environment variables - MD5
 - Level 4 : Hashing + Salting - bcrypt
 - Level 5 : Hashing + Salting with Cookies - Passport
+- Level 6 : Sign-in with Google using OAuth2.0
